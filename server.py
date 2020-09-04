@@ -1,10 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():
     return render_template('./index.html')
+
+
+@app.route('/home')
+def home():
+    return redirect('/')
+
+
+@app.route('/index')
+def index():
+    return redirect('/')
 
 
 @app.route('/about')
@@ -16,9 +26,15 @@ def about():
 def works():
     return render_template('./works.html')
 
-# @app.route('/blog')
-# def blog():
-#     return 'These are my thoughts on my blog!'
+
+@app.route('/contact')
+def contact():
+    return render_template('./contact.html')
+
+
+@app.route('/components')
+def components():
+    return render_template('./components.html')
 
 
 @app.route('/blog/2020/dogs')
